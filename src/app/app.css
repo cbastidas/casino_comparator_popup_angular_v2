@@ -1,0 +1,10 @@
+/* src/app/app.css */
+
+/*
+The app-root component should take up the full available space 
+to ensure the background image is correctly visible underneath.
+*/
+:host {
+  display: block;
+  min-height: 100vh;
+}

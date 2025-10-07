@@ -1,0 +1,40 @@
+/* src/styles.css */
+/* Global Reset and Font Application */
+* {
+  /* Set box-sizing to border-box for easier layout and responsiveness */
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+  /* Apply the Google Font 'Prompt' */
+  font-family: 'Prompt', sans-serif; 
+}
+
+/* Base Responsive Setup */
+:root {
+  /* Define a base font size for rem units */
+  font-size: 16px; 
+}
+
+/* Background Application */
+body, html {
+  height: 100%;
+}
+
+body {
+  /* Use the background image provided in assets */
+  background-image: url('./assets/images/Background.png'); 
+  background-size: cover; 
+  background-attachment: fixed; /* Fixed background for better scrolling */
+  background-position: center;
+  color: #FFFFFF; /* Default text color is white */
+  min-height: 100vh;
+}
+
+.blurred-content {
+  /* Apply a 5-pixel blur effect */
+  filter: blur(5px);
+  /* Optional: Add a smooth transition for the blur effect */
+  transition: filter 0.3s ease-in-out;
+  /* Prevent interaction with the blurred content */
+  pointer-events: none;
+}

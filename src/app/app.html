@@ -1,0 +1,8 @@
+<app-popup 
+  *ngIf="showPopup" 
+  (timerFinished)="handleTimerFinished()">
+</app-popup>
+
+<div [class.blurred-content]="showPopup">
+    <app-casino-list></app-casino-list>
+</div>

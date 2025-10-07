@@ -1,0 +1,165 @@
+/* src/app/casino-list/casino-list.css */
+
+/* Main Container and Title */
+.main-container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the content */
+}
+
+.main-title {
+  color: #FFFFFF; /* White */
+  font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+/* --- Banner/GIF Containers --- */
+.banner-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* Important for responsiveness: allows items to wrap */
+}
+
+/* Individual Banner/GIF Style (Placeholder) */
+.banner {
+  height: 50px; 
+  width: 100%;
+  max-width: 380px; /* Max size for three items across in a 1200px container */
+  /* Orange stroke color from details: #FED34D */
+  border: 2px solid #FED34D; 
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #002829; /* Dark background for placeholders */
+  color: #FED34D;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0 1rem;
+}
+
+/* --- Casino List Grid/Table Structure --- */
+.casino-list {
+  background-color: rgba(0, 40, 41, 0.95); /* Slightly transparent dark background */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Shared Row Style */
+.casino-row {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  transition: background-color 0.2s;
+}
+.casino-row:hover:not(.header-row, .telegram-row) {
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle hover effect */
+}
+.casino-row:last-child {
+  border-bottom: none;
+}
+
+/* --- Header Row Specifics --- */
+.casino-row.header-row {
+  background-color: #F7A813; /* Yellow background */
+  color: #002829; /* Dark text */
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Default Column Distribution (Mobile) */
+.row-site, .row-bonus, .row-cta {
+  padding: 0 0.5rem;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile Layout: Focus on Site and CTA, hide Bonus text */
+.row-site {
+  flex: 0 0 55%; /* Give site/logo more space */
+  justify-content: flex-start;
+}
+
+.row-bonus {
+  display: none; /* Hide bonus text on very small screens */
+}
+
+.row-cta {
+  flex: 0 0 45%; 
+  justify-content: flex-end;
+}
+
+.site-logo {
+  height: 30px; 
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+/* --- CTA Button Style --- */
+.cta-button {
+  background: linear-gradient(to bottom, #FED34D, #F7A813); 
+  color: #002829;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap; 
+  transition: transform 0.1s;
+}
+.cta-button:hover {
+    transform: translateY(-1px);
+}
+
+/* --- Telegram Row Specifics --- */
+.casino-row.telegram-row {
+  background-color: #002829; 
+  color: #FFFFFF;
+}
+.telegram-row .row-site {
+    flex: 0 0 10%; /* Small logo space */
+}
+.telegram-row .row-bonus {
+    display: flex; /* Always display bonus text for telegram */
+    flex: 1; /* Take up remaining space */
+    font-style: italic;
+    font-size: 0.95rem;
+}
+.telegram-row .row-cta {
+    flex: 0 0 30%;
+}
+
+
+/* --- Responsive Breakpoint (Tablet/Desktop: 768px+) --- */
+@media (min-width: 768px) {
+  .casino-row {
+    padding: 1rem;
+  }
+  
+  /* Reset for 3-column desktop layout */
+  .row-site {
+    flex: 0 0 25%; /* Site and logo */
+  }
+  .row-bonus {
+    display: flex; /* Show bonus text */
+    flex: 1; /* Bonus text takes the center */
+  }
+  .row-cta {
+    flex: 0 0 25%; 
+    justify-content: center;
+  }
+  
+  /* Desktop Header Distribution */
+  .header-row .row-site { flex: 0 0 25%; }
+  .header-row .row-bonus { flex: 1; }
+  .header-row .row-cta { flex: 0 0 25%; }
+}

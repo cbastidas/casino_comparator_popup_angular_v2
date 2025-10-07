@@ -1,0 +1,41 @@
+<div class="main-container">
+    <h1 class="main-title">En Güvenilir Casino Siteleri</h1>
+
+    <div class="banner-section">
+        <img src="assets/gifs/hovarda.png" alt="Hovarda GIF" class="banner" /> 
+        <img src="assets/gifs/winnit.gif" alt="Winnit GIF" class="banner" />
+        <img src="assets/gifs/discount-casino.gif" alt="Discount Casino GIF" class="banner" />
+    </div>
+
+    <div class="casino-list">
+        <div 
+            *ngFor="let entry of casinoData" 
+            class="casino-row"
+            [class.header-row]="entry.isHeader"
+            [class.telegram-row]="entry.isTelegram">
+
+            <div class="row-site">
+                <img 
+                    *ngIf="entry.logo && !entry.isHeader" 
+                    [src]="'assets/logos/' + entry.logo"  [alt]="entry.name + ' Logo'" 
+                    class="site-logo">
+                <span>{{ entry.name }}</span>
+            </div>
+
+            <div class="row-bonus">{{ entry.bonusText }}</div>
+
+            <div class="row-cta">
+                <button *ngIf="!entry.isHeader" class="cta-button">
+                    {{ entry.ctaText }}
+                </button>
+                <span *ngIf="entry.isHeader">{{ entry.ctaText }}</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="banner-section" style="margin-top: 1.5rem;">
+        <img src="assets/gifs/davegas.gif" alt="Davegas GIF" class="banner" /> 
+        <img src="assets/gifs/telegram.gif" alt="Telegram GIF" class="banner" />
+        <img src="assets/gifs/milyar.gif" alt="Milyar GIF" class="banner" />
+    </div>
+</div>
