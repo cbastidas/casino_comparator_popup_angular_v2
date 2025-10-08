@@ -19,28 +19,29 @@
 .banner-section {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 3rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap; /* Important for responsiveness: allows items to wrap */
+  align-items: center;
 }
 
 /* Individual Banner/GIF Style (Placeholder) */
 .banner {
-  height: 50px; 
+  height: 100%; 
+  max-height: 70px;
   width: 100%;
-  max-width: 380px; /* Max size for three items across in a 1200px container */
+  max-width: 300px; /* Max size for three items across in a 1200px container */
   /* Orange stroke color from details: #FED34D */
-  border: 2px solid #FED34D; 
+  border: 1px solid #FED34D; 
   border-radius: 8px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover; 
+  object-position: center;
   background-color: #002829; /* Dark background for placeholders */
   color: #FED34D;
   font-size: 1rem;
   font-weight: 700;
-  padding: 0 1rem;
+  padding: 0;
 }
 
 /* --- Casino List Grid/Table Structure --- */
@@ -72,6 +73,7 @@
   font-weight: 700;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
+  align-items: center;
 }
 
 /* Default Column Distribution (Mobile) */
@@ -84,21 +86,27 @@
 
 /* Mobile Layout: Focus on Site and CTA, hide Bonus text */
 .row-site {
-  flex: 0 0 55%; /* Give site/logo more space */
+  flex: 0 0 30%; /* Give site/logo more space */
   justify-content: flex-start;
+  padding-left: 0.5rem;
 }
 
 .row-bonus {
-  display: none; /* Hide bonus text on very small screens */
+ /* display: none;  Hide bonus text on very small screens */
+ display: flex;
+ flex: 1;
+ font-size: 0.75rem;
+ padding: 0 0.25rem;
 }
 
 .row-cta {
-  flex: 0 0 45%; 
+  flex: 0 0 35%; 
   justify-content: flex-end;
+  padding-right: 0.5rem;
 }
 
 .site-logo {
-  height: 30px; 
+  height: 100px; 
   width: auto;
   margin-right: 0.5rem;
 }
@@ -107,14 +115,15 @@
 .cta-button {
   background: linear-gradient(to bottom, #FED34D, #F7A813); 
   color: #002829;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.6rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   white-space: nowrap; 
   transition: transform 0.1s;
+  text-decoration: none;;
 }
 .cta-button:hover {
     transform: translateY(-1px);
@@ -140,7 +149,9 @@
 
 
 /* --- Responsive Breakpoint (Tablet/Desktop: 768px+) --- */
+
 @media (min-width: 768px) {
+
   .casino-row {
     padding: 1rem;
   }
@@ -148,18 +159,22 @@
   /* Reset for 3-column desktop layout */
   .row-site {
     flex: 0 0 25%; /* Site and logo */
+    min-width: 250px;
   }
   .row-bonus {
     display: flex; /* Show bonus text */
     flex: 1; /* Bonus text takes the center */
+    justify-content: center;
+    text-align: center;
   }
   .row-cta {
     flex: 0 0 25%; 
+    min-width: 150px;
     justify-content: center;
   }
   
   /* Desktop Header Distribution */
   .header-row .row-site { flex: 0 0 25%; }
-  .header-row .row-bonus { flex: 1; }
+  .header-row .row-bonus { flex: 1; text-align: center; justify-content: center;}
   .header-row .row-cta { flex: 0 0 25%; }
 }

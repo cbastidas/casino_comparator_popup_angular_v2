@@ -18,6 +18,7 @@ export class PopupComponent implements OnInit, OnDestroy {
   readonly DURATION_MS = 5000; 
   // Variable to hold the reference to the JavaScript timer
   private countdownTimer: any;
+  readonly CTA_LINK = 'https://example.com/bonus'; // Replace with actual link
 
   // Initialize the component
   ngOnInit(): void {
@@ -40,7 +41,15 @@ export class PopupComponent implements OnInit, OnDestroy {
    * Clicking the button should immediately close the popup.
    */
   onCtaClick(): void {
+    window.open(this.CTA_LINK, '_blank');
     // Immediately clear the timer and emit the finish event
+    if (this.countdownTimer) {
+      clearTimeout(this.countdownTimer);
+    }
+    this.timerFinished.emit();
+  }
+
+  onCloseClick(): void {
     if (this.countdownTimer) {
       clearTimeout(this.countdownTimer);
     }

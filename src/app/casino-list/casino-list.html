@@ -2,7 +2,7 @@
     <h1 class="main-title">En Güvenilir Casino Siteleri</h1>
 
     <div class="banner-section">
-        <img src="assets/gifs/hovarda.png" alt="Hovarda GIF" class="banner" /> 
+        <img src="assets/gifs/hovarda.gif" alt="Hovarda GIF" class="banner" /> 
         <img src="assets/gifs/winnit.gif" alt="Winnit GIF" class="banner" />
         <img src="assets/gifs/discount-casino.gif" alt="Discount Casino GIF" class="banner" />
     </div>
@@ -25,9 +25,11 @@
             <div class="row-bonus">{{ entry.bonusText }}</div>
 
             <div class="row-cta">
-                <button *ngIf="!entry.isHeader" class="cta-button">
-                    {{ entry.ctaText }}
-                </button>
+                <a 
+                    *ngIf="!entry.isHeader" 
+                    class="cta-button"
+                    [href]="entry.linkUrl"             target="_blank"                    rel="noopener noreferrer">         {{ entry.ctaText }}
+                </a>
                 <span *ngIf="entry.isHeader">{{ entry.ctaText }}</span>
             </div>
         </div>
